@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RelatorioMovimentacao" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d95b22a7-ed87-4a36-8d85-bbea527893d8">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select * from historico]]>
+	</queryString>
+	<field name="id_historico" class="java.lang.Integer"/>
+	<field name="id_produto" class="java.lang.Integer"/>
+	<field name="portador" class="java.lang.String"/>
+	<field name="movimentacaode" class="java.lang.String"/>
+	<field name="movimentacaopara" class="java.lang.String"/>
+	<field name="data" class="java.lang.String"/>
+	<field name="responsavel" class="java.lang.String"/>
+	<field name="local" class="java.lang.String"/>
+	<field name="descricao" class="java.lang.String"/>
+	<field name="patrimonio" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="91" splitType="Stretch">
+			<staticText>
+				<reportElement x="114" y="12" width="436" height="29" uuid="2229e427-89b9-41b8-9568-d24fd36932f6"/>
+				<textElement>
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RELATÓRIO DE MOVIMENTAÇÃO POR PRODUTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="8" y="66" width="126" height="20" uuid="31d4312d-0bd3-4f69-b06a-229023242b21"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PATRIMÔNIO/PRODUTO : ]]></text>
+			</staticText>
+			<line>
+				<reportElement x="111" y="43" width="436" height="1" uuid="6f02be21-3572-4a50-b261-807d48a868cf"/>
+			</line>
+			<textField>
+				<reportElement x="186" y="66" width="264" height="20" uuid="bd5b6202-7061-4d7a-b031-25e5dfe87e9a"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{descricao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="136" y="66" width="50" height="20" uuid="3d26e5ee-66cf-4222-bac5-5721dc2cabf3"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{patrimonio}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="29" splitType="Stretch">
+			<staticText>
+				<reportElement x="11" y="0" width="103" height="14" uuid="47ed05dc-8496-47d8-966b-c219dcbebb85"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[MOVIMENTAÇÃO DE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="169" y="0" width="123" height="14" uuid="fa9fe05b-a980-40bd-a425-becb1a00fd53"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[MOVIMENTAÇÃO PARA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="343" y="0" width="123" height="14" uuid="821014fa-2822-4aef-954f-b26759612477"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[DATA MOVIMENTAÇÃO]]></text>
+			</staticText>
+			<line>
+				<reportElement x="2" y="-4" width="553" height="1" uuid="8e56696f-efb8-44a4-b29a-232fb1018fac"/>
+			</line>
+			<staticText>
+				<reportElement x="472" y="0" width="65" height="13" uuid="eb116852-2fe8-40a3-960a-3c9af0c91046"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PORTADOR]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="17" width="553" height="1" uuid="47934ca0-3a7b-4ff5-8d7d-371fe966e547"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement x="11" y="0" width="148" height="20" uuid="6f624441-0561-4363-bf0e-febb6f890930"/>
+				<textFieldExpression><![CDATA[$F{movimentacaode}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="169" y="0" width="167" height="20" uuid="480c4001-e67d-4415-a3e7-38c4559753ec"/>
+				<textFieldExpression><![CDATA[$F{movimentacaopara}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="343" y="0" width="69" height="20" uuid="b2529170-bce3-4520-9dbf-5ac8fa763bfb"/>
+				<textFieldExpression><![CDATA[$F{data}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="472" y="2" width="80" height="20" uuid="d3919038-b6a0-4e8d-8600-72f9ba9039fd"/>
+				<textFieldExpression><![CDATA[$F{portador}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement x="430" y="5" width="80" height="14" uuid="8a2807bc-a335-4576-abc8-2a7a08214acb"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="510" y="5" width="40" height="14" uuid="2eeb96bb-880e-4e02-a5c4-1ade43fe2c6c"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>
